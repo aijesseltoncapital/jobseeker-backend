@@ -1,0 +1,16 @@
+Flask
+Flask-RESTful
+Flask-SQLAlchemy
+Flask-JWT-Extended
+Flask-Migrate
+Flask-Bcrypt
+Flask-Cors
+Flask-SocketIO
+marshmallow
+python-dotenv
+psycopg2-binary
+boto3
+Pillow
+redis
+gevent
+gunicorn
