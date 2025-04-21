@@ -6,9 +6,9 @@ from datetime import datetime
 import bcrypt
 
 from app import db
-from models.user import User
-from models.credential import Credential
-from models.schedule import Schedule
+from backend.models.user import User
+from backend.models.credential import Credential
+from backend.models.schedule import Schedule
 
 profile_bp = Blueprint('profile', __name__)
 

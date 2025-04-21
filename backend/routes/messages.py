@@ -4,9 +4,9 @@ from sqlalchemy import or_, and_
 from flask_socketio import emit, join_room, leave_room
 
 from app import db, socketio
-from models.message import Message, Conversation
-from models.user import User
-from models.notification import Notification
+from backend.models.message import Message, Conversation
+from backend.models.user import User
+from backend.models.notification import Notification
 from datetime import datetime
 
 # Define the Blueprint for messages

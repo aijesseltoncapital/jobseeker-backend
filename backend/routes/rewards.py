@@ -3,8 +3,8 @@ from flask_jwt_extended import jwt_required, get_jwt_identity
 from sqlalchemy import func
 
 from app import db
-from models.reward import Reward
-from models.user import User
+from backend.models.reward import Reward
+from backend.models.user import User
 
 rewards_bp = Blueprint('rewards', __name__)
 

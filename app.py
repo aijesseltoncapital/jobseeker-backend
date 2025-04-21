@@ -7,7 +7,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_bcrypt import Bcrypt
 
-from config import Config
+from backend.config import Config
 
 # Initialize Flask extensions
 db = SQLAlchemy()
@@ -29,14 +29,14 @@ def create_app(config_class=Config):
     socketio.init_app(app, cors_allowed_origins="*")
     
     # Register blueprints
-    from routes.auth import auth_bp
-    from routes.jobs import jobs_bp
-    from routes.messages import messages_bp
-    from routes.notifications import notifications_bp
-    from routes.profile import profile_bp
-    from routes.settings import settings_bp
-    from routes.payments import payments_bp
-    from routes.rewards import rewards_bp
+    from backend.routes.auth import auth_bp
+    from backend.routes.jobs import jobs_bp
+    from backend.routes.messages import messages_bp
+    from backend.routes.notifications import notifications_bp
+    from backend.routes.profile import profile_bp
+    from backend.routes.settings import settings_bp
+    from backend.routes.payments import payments_bp
+    from backend.routes.rewards import rewards_bp
     
     app.register_blueprint(auth_bp, url_prefix='/api/jobseeker')
     app.register_blueprint(jobs_bp, url_prefix='/api')

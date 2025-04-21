@@ -2,9 +2,9 @@ from flask import Blueprint, request, jsonify
 from flask_jwt_extended import create_access_token, get_jwt_identity, jwt_required
 
 from app import db, bcrypt
-from models.user import User
-from services.auth_service import send_otp, verify_otp
-from services.social_service import verify_google_token, verify_linkedin_token
+from backend.models.user import User
+from backend.services.auth_service import send_otp, verify_otp
+from backend.services.social_service import verify_google_token, verify_linkedin_token
 
 auth_bp = Blueprint('auth', __name__)
 
@@ -17,7 +17,7 @@ def login():
     user = User.query.filter_by(phone_number=phone_number).first()
     
     if user and user.check_password(password):
-        access_token = create_access_token(identity=user.id)
+        access_token = create_access_token(identity=str(user.id))
         return {
             "status": "success",
             "token": access_token,
@@ -49,7 +49,7 @@ def google_login():
         db.session.add(user)
         db.session.commit()
     
-    access_token = create_access_token(identity=user.id)
+    access_token = create_access_token(identity=str(user.id))
     return {
         "status": "success",
         "token": access_token,
@@ -78,7 +78,7 @@ def linkedin_login():
         db.session.add(user)
         db.session.commit()
     
-    access_token = create_access_token(identity=user.id)
+    access_token = create_access_token(identity=str(user.id))
     return {
         "status": "success",
         "token": access_token,
@@ -153,7 +153,7 @@ def signup():
     db.session.add(user)
     db.session.commit()
     
-    access_token = create_access_token(identity=user.id)
+    access_token = create_access_token(identity=str(user.id))
     
     return {
         "status": "success",

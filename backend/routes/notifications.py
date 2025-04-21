@@ -3,7 +3,7 @@ from flask_jwt_extended import jwt_required, get_jwt_identity
 from datetime import datetime
 
 from app import db
-from models.notification import Notification
+from backend.models.notification import Notification
 
 notifications_bp = Blueprint('notifications', __name__)
 
