@@ -38,14 +38,14 @@ def create_app(config_class=Config):
     from backend.routes.payments import payments_bp
     from backend.routes.rewards import rewards_bp
     
-    app.register_blueprint(auth_bp, url_prefix='/api/jobseeker')
-    app.register_blueprint(jobs_bp, url_prefix='/api')
-    app.register_blueprint(messages_bp, url_prefix='/api/messages')
-    app.register_blueprint(notifications_bp, url_prefix='/api/notifications')
-    app.register_blueprint(profile_bp, url_prefix='/api/profile')
-    app.register_blueprint(settings_bp, url_prefix='/api/settings')
-    app.register_blueprint(payments_bp, url_prefix='/api/payments')
-    app.register_blueprint(rewards_bp, url_prefix='/api/rewards')
+    app.register_blueprint(auth_bp)
+    app.register_blueprint(jobs_bp)
+    app.register_blueprint(messages_bp, url_prefix='/messages')
+    app.register_blueprint(notifications_bp, url_prefix='/notifications')
+    app.register_blueprint(profile_bp, url_prefix='/profile')
+    app.register_blueprint(settings_bp, url_prefix='/settings')
+    app.register_blueprint(payments_bp, url_prefix='/payments')
+    app.register_blueprint(rewards_bp, url_prefix='/rewards')
     
     # Error handlers
     @app.errorhandler(404)
